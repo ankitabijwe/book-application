@@ -17,18 +17,14 @@
 	<script type="text/javascript"
 	src="<c:url value="/resources/js/jquery-1.11.3.js"/>"></script>
 <script type="text/javascript">
-function uploadBook(){
-	$.post("<c:url value='//uploadController/uploadBook'/>",$("#uploadForm").serialize(),function(response){
-		alert(response);
-	});
-}</script>
+</script>
 </head>
 <body>
 	<div class="container">
 		<!-- freshdesignweb top bar -->
 		<div class="freshdesignweb-top">
 			<!-- 	 -->
-			<span class="right"> <a href="home.jsp"><strong>Home</strong></a>
+			<span class="right"> <a href="../"><strong>Home</strong></a>
 			</span>
 			
 			<div class="clr"></div>

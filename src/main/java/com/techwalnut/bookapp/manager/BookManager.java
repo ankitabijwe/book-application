@@ -29,8 +29,8 @@ public class BookManager {
 	@Value("${PDFPATH}")
 	String pdfPath;
 
-	public List<PreviewVO> showAllBooks() {
-		List<PreviewVO> bookVOs = bookDao.showAllBooks();
+	public List<PreviewVO> showAllBooks(int pageIndex, int numberOfRecordsPerPage) {
+		List<PreviewVO> bookVOs = bookDao.showAllBooks(pageIndex,numberOfRecordsPerPage);
 		for (PreviewVO bookVO : bookVOs) {
 			bookVO.setBookImage(imagePath + File.separator + bookVO.getBookImage());
 			bookVO.setFile(pdfPath + File.separator + bookVO.getFile());
@@ -39,5 +39,21 @@ public class BookManager {
 		}
 		return bookVOs;
 
+	}
+
+	public List<PreviewVO> getBookPageWise(String num) {
+		List<PreviewVO> bookVOs = bookDao.getBookPageWise(num);
+		for (PreviewVO bookVO : bookVOs) {
+			bookVO.setBookImage(imagePath + File.separator + bookVO.getBookImage());
+			bookVO.setFile(pdfPath + File.separator + bookVO.getFile());
+		
+
+		}
+		return bookVOs;
+	}
+
+	public int getTotalCount() {
+		
+		return bookDao.getTotalCount();
 	}
 }

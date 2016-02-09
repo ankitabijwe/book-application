@@ -15,9 +15,20 @@ public class BookService {
 	@Autowired
 	BookManager bookManager;
 
-	public List<PreviewVO> showAllBooks() {
-		return bookManager.showAllBooks();
+	public List<PreviewVO> showAllBooks(int pageIndex, int numberOfRecordsPerPage) {
+		return bookManager.showAllBooks(pageIndex,numberOfRecordsPerPage);
 
+	}
+
+	public List<PreviewVO> getBookPageWise(String num) {
+		return bookManager.getBookPageWise(num);
+
+		
+	}
+
+	public int getTotalCount() {
+		return bookManager.getTotalCount();
+		
 	}
 
 }
